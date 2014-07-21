@@ -36,7 +36,7 @@ module.exports = (robot) ->
 
     listPullRequests user, repo
       .then (pulls) ->
-        res.send pulls.map((pull) -> pull.title + '\n  ' + pull.url).join('\n')
+        res.send pulls.map((p) -> p.title + '\n  ' + p.html_url).join('\n')
       , (err) ->
         robot.logger.error err
         res.send 'list-pr error'

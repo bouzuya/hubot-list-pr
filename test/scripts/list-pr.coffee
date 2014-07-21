@@ -15,7 +15,7 @@ describe 'list-pr', ->
       @sinon.stub pullRequests, 'getAll', (msg, block, callback) ->
         callback(null, [
           title: 'hoge'
-          url: 'https://github.com/hitoridokusho/hibot/pulls/1'
+          html_url: 'https://github.com/hitoridokusho/hibot/pulls/1'
         ])
       GitHub = require 'github'
       @sinon.stub GitHub.prototype, 'authenticate', -> # do nothing
