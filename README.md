@@ -18,7 +18,7 @@ or
 ## Commands
 
     bouzuya> hubot help list-pr
-    hubot> hubot list-pr - list Pull Requests
+    hubot> hubot list-pr <user>/<repo> - list Pull Requests
 
     bouzuya> hubot list-pr hitoridokusho/hibot
     hubot> OK. please wait.
