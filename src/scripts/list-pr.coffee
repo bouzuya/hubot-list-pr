@@ -30,7 +30,7 @@ module.exports = (robot) ->
         resolve(result)
       )
 
-  robot.respond /list-pr\s+(\w+)\/(\w+)$/i, (res) ->
+  robot.respond /list-pr\s+([\w\d][\w\d-]*)\/([\w\d-_]+)$/i, (res) ->
     user = res.match[1]
     repo = res.match[2]
 
