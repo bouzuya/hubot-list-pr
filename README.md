@@ -14,18 +14,25 @@ or
 ## Configuration
 
     $ export HUBOT_LIST_PR_TOKEN='...'
+    $ export HUBOT_LIST_PR_DEFAULT_USERNAME='...'
 
 ## Commands
 
     bouzuya> hubot help list-pr
-    hubot> hubot list-pr <user>/<repo> - list Pull Requests
+    hubot> hubot list-pr [<user>/]<repo> - list Pull Requests
 
     bouzuya> hubot list-pr hitoridokusho/hibot
-    hubot> OK. please wait.
-    hubot> pull request 1
-             https://github.com/hitoridokusho/hibot/pull/1
-           pull request 2
-             https://github.com/hitoridokusho/hibot/pull/2
+    hubot> #1 pull request 1
+               https://github.com/hitoridokusho/hibot/pull/1
+           #2 pull request 2
+               https://github.com/hitoridokusho/hibot/pull/2
+
+    (HUBOT_LIST_PR_DEFAULT_USERNAME=hitoridokusho)
+    bouzuya> hubot list-pr hibot
+    hubot> #1 pull request 1
+               https://github.com/hitoridokusho/hibot/pull/1
+           #2 pull request 2
+               https://github.com/hitoridokusho/hibot/pull/2
 
 ## License
 

@@ -6,10 +6,11 @@
 #   "q": "^1.0.1"
 #
 # Configuration:
+#   HUBOT_LIST_PR_DEFAULT_USERNAME
 #   HUBOT_LIST_PR_TOKEN
 #
 # Commands:
-#   hubot list-pr <user>/<repo> - list Pull Requests
+#   hubot list-pr [<user>/]<repo> - list Pull Requests
 #
 # Author:
 #   bouzuya <m@bouzuya.net>
@@ -30,13 +31,18 @@ module.exports = (robot) ->
         resolve(result)
       )
 
-  robot.respond /list-pr\s+([\w\d][\w\d-]*)\/([\w\d-_]+)$/i, (res) ->
-    user = res.match[1]
+  robot.respond /list-pr\s+(?:([\w\d][\w\d-]*)\/)?([\w\d-_]+)$/i, (res) ->
+    user = res.match[1] ? process.env.HUBOT_LIST_PR_DEFAULT_USERNAME
+    return unless user?
     repo = res.match[2]
 
     listPullRequests user, repo
       .then (pulls) ->
-        res.send pulls.map((p) -> p.title + '\n  ' + p.html_url).join('\n')
+        if pulls.length > 0
+          message = pulls
+            .map (p) -> "\##{p.number} #{p.title}\n    #{p.html_url}"
+            .join '\n'
+          res.send message
       , (err) ->
         robot.logger.error err
         res.send 'list-pr error'

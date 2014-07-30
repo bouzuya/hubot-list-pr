@@ -14,6 +14,7 @@ describe 'list-pr', ->
       {pullRequests} = require 'github/api/v3.0.0/pullRequests'
       @sinon.stub pullRequests, 'getAll', (msg, block, callback) ->
         callback(null, [
+          number: 1
           title: 'hoge'
           html_url: 'https://github.com/hitoridokusho/hibot/pulls/1'
         ])
@@ -29,5 +30,8 @@ describe 'list-pr', ->
           .then =>
             expect(@kakashi.send.callCount).to.equal(1)
             expect(@kakashi.send.firstCall.args[1]).to
-              .equal('hoge\n  https://github.com/hitoridokusho/hibot/pulls/1')
+              .equal '''
+              #1 hoge
+                  https://github.com/hitoridokusho/hibot/pulls/1
+              '''
           .then (-> done()), done
