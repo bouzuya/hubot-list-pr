@@ -1,6 +1,6 @@
 {
   "name": "hubot-list-pr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Hubot script for listing Pull Requests",
   "main": "index.js",
   "scripts": {
