@@ -1,3 +1,7 @@
+# DEPRECATION WARNING
+
+**THIS PROJECT IS NO LONGER SUPPORTED. YOU SHOULD USE THE [bouzuya/hubot-pr][] INSTEAD.**
+
 # hubot-list-pr
 
 A Hubot script for listing Pull Requests.
@@ -44,3 +48,4 @@ MIT
 
 [travis]: https://travis-ci.org/bouzuya/hubot-list-pr
 [travis-status]: https://travis-ci.org/bouzuya/hubot-list-pr.svg?branch=master
+[bouzuya/hubot-pr]: https://github.com/bouzuya/hubot-pr
